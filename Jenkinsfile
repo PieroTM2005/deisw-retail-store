@@ -75,8 +75,7 @@ pipeline {
                         sh "echo '${DOCKER_PASS}' | docker login -u '${DOCKER_USER}' --password-stdin"
 
                         echo "Construyendo imagen optimizada AMD64..."
-                        // Compilamos forzando la plataforma AMD64 para evitar el error 'exec format error' en Render
-                        sh "docker buildx build --platform linux/amd64 -t ${REGISTRY_USER}/${IMAGE_NAME}:${TAG} -t ${REGISTRY_USER}/${IMAGE_NAME}:latest --push ."
+                        sh "docker buildx build --platform linux/amd64 -t $pierotm/retail-store-u202318731:${TAG} -t pierotm/retail-store-u202318731:latest --push ."
                     }
                 }
             }
